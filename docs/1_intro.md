@@ -1,12 +1,11 @@
 # Introduction
 
-- Web / Desktop / Mobile App, IoT 등 Cross-platform 을 지원
-
 ### Why flutter?
 
-- 하나의 언어 + 프레임워크를 가지고 많은 것들을 만들 수 있음
+- Web / Desktop / Mobile App, IoT 등 Cross-platform 을 지원
+- 위 모든 플랫폼 앱을 만들기 위해 Dart 라는 언어 딱 하나만 알면 됨.
 - 구글이 자체 앱을 flutter 로 만들어 내기 시작하면서 쉽게 버릴것 같은 분위기가 아님.
-- 세계의 대기업에서 flutter 를 사용하기 시작함.
+- 세계의 대기업들에서도 flutter 를 사용하기 시작함.
 - 웹앱을 만들어도 html, css 등을 전혀 쓸 필요가 없음.
 - 게임 제작도 가능
 

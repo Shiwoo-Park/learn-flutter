@@ -17,6 +17,12 @@
 - `flutterplasma`: 애니메이션 예시
 - `pinball.flutter.dev`
 
+### Flutter Architecture
+
+[공식 문서](https://docs.flutter.dev/resources/architectural-overview)
+
+<img src="https://docs.flutter.dev/assets/images/docs/arch-overview/archdiagram.png" width=50% height=50%>
+
 ### How flutter works
 
 - flutter를 사용하면 각 플랫폼의 네이티브 UI는 사용불가 (built-in platform widget 사용불가)

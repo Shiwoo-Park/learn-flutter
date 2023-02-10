@@ -7,3 +7,4 @@
 | #   | 노트                             | 코드 |
 | --- | -------------------------------- | ---- |
 | 1   | [Introduction](/docs/1_intro.md) | -    |
+| 2   | [Hello flutter](/docs/2_hello_flutter.md) | [Code](/codes/2_hello_flutter.dart) |

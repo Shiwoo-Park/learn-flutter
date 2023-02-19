@@ -21,4 +21,4 @@ git remote set-url origin "https://shiwoo-park@github.com/shiwoo-park/learn-flut
 
 ### Currency app
 
-![currency_app](/resources/currency_app.png)
+![currency_app](/resources/currency_app.png | width=40%)

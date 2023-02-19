@@ -8,7 +8,7 @@
 | --- | -------------------------------- | ---- |
 | 1   | [Introduction](/docs/1_intro.md) | -    |
 | 2   | [Hello flutter](/docs/2_hello_flutter.md) | [Code](/codes/2_hello_flutter.dart) |
-| 3   | [UI Challenge](/docs/3_ui_challenge.md) | [Code](/codes/3_ui_challenge/currency_app_main.dart) |
+| 3   | [UI Challenge (Currency app)](/docs/3_ui_challenge.md) | [Code](/codes/3_ui_challenge/currency_app_main.dart) |
 
 ## Trouble shooting
 

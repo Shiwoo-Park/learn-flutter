@@ -2,7 +2,6 @@
 
 ## Visual Studio Code 제대로 활용하기
 
-
 ### 유용한 설정
 
 - Dart + Flutter 개발 시, 유용한 Visual Studio Setting
@@ -34,6 +33,8 @@
 - Row: 가로 영역
 - Padding: 테두리 안쪽영역
 - Container: 박스영역 (html의 div)
+- Flexible: 박스영역인데 화면을 차지하는 비율을 지정할 수 있음
+- Expanded: 박스가 차지하는 영역을 확장해서 전체로 넓힘
 
 ## Attribute values
 

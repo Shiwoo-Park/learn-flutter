@@ -23,3 +23,4 @@ git remote set-url origin "https://shiwoo-park@github.com/shiwoo-park/learn-flut
 ### Currency app
 
 <img src="/resources/currency_app.png" width=50% height=50%>
+<img src="/resources/pomodoro_app.png" width=50% height=50%>

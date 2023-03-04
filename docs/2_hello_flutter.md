@@ -14,5 +14,7 @@
   - [플러터 위젯 카탈로그](https://flutter-ko.dev/docs/reference/widgets)를 보면 다양한 공식/커뮤니티 위젯 을 제공함.
   - 위젯이 필요하면 검색해서 가져다가 쓰면 됨.
   - 위젯 하나 당 클래스 하나
-- Scaffold
-  - 화면의 기본적인 구성과 틀을 잡아주는 것
+- 패키지 관리 시스템
+  - `pub.dev`: Dart, Flutter 를 위한 공식 패키지 등을 모아둔 저장소 (node 의 npm, 파이썬의 pip 같은 느낌)
+  - `pubspec.yaml` : 프로젝트의 패키지 의존성을 관리하는 파일
+  - 유용한 패키지: http

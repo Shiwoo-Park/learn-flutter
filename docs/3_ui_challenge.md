@@ -45,6 +45,7 @@
 - ListView.builder, ListView.separated: 여러개의 동일한 위젯을 동적으로 렌더링+삭제 하며 표시 (대량 데이터에 활용, like paging)
 - GestureDetector: 유저로부터 입력되는 각종 UI 액션에 대한 event 를 붙이고 싶을때 사용
 - Navigator: 화면 전환 시 사용
+- Hero: 화면이 전환될때 각 화면의 동일한 widget을 wrap 하여 같은 tag를 붙여주면 자연스럽게 해당 요소를 애니메이션 걸어줌
 
 ### FutureBuilder
 

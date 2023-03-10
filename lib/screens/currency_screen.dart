@@ -28,7 +28,7 @@ class CurrencyScreen extends StatelessWidget {
                         "Hey, Shiwoo",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 28,
+                          fontSize: 20,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
@@ -36,7 +36,7 @@ class CurrencyScreen extends StatelessWidget {
                         "Welcome back",
                         style: TextStyle(
                           color: Colors.white.withOpacity(0.8),
-                          fontSize: 18,
+                          fontSize: 15,
                         ),
                       ),
                     ],
@@ -60,7 +60,7 @@ class CurrencyScreen extends StatelessWidget {
                 '\$5 194 482',
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.8),
-                  fontSize: 44,
+                  fontSize: 24,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -93,7 +93,7 @@ class CurrencyScreen extends StatelessWidget {
                     "Wallets",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 36,
+                      fontSize: 25,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

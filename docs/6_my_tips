@@ -35,3 +35,49 @@ Flutter에서 stateless widget stateful widget보다 더 많이 사용하는 것
 3. 테스트 용이성: stateless widget은 동일한 입력에 대해 항상 동일한 출력을 반환하기 때문에 테스트 하기가 더욱 쉽습니다. 이는 코드 품질을 높이는 데 도움이 됩니다.
 
 하지만 모든 상황에서 stateless widget을 사용하는 것이 항상 최선인 것은 아닙니다. 예를 들어, 사용자 입력에 응답하여 상태를 변경해야 하는 경우 stateful widget을 사용해야 합니다. 따라서 상황에 따라 적 절한 위젯을 선택하는 것이 중요합니다.
+
+
+### API 호출을 통한 data fetch 시점
+
+- 일반적인경우 위젯 클래스 바로 안쪽에서 함수 호출
+- data fetch 함수 호출 시, 위젯의 initialize 시점에 넘어오는 argument 가 필요하다면 위젯을 StatefulWidget 으로 바꾸고 `initState()` 안쪽에서 함수를 호출
+
+```dart
+// 일반적인 경우
+class WebtoonHomeScreen extends StatelessWidget {
+  WebtoonHomeScreen({super.key});
+
+  final Future<List<WebtoonModel>> webtoons = ApiService.getTodaysToon();
+}
+
+// -------------------------------------------------
+// 클래스 
+class DetailScreen extends StatefulWidget {
+  final String title, thumb, id;
+
+  const DetailScreen({
+    required this.title,
+    required this.thumb,
+    required this.id,
+    super.key,
+  });
+
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  final String userAgent =
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36';
+
+  late Future<WebtoonDetailModel> webtoon;
+  late Future<List<WebtoonEpisode>> episodes;
+
+  @override
+  void initState() {
+    super.initState();
+    webtoon = ApiService.getWebtoonById(widget.id);
+    episodes = ApiService.getWebtoonEpisodesById(widget.id);
+  }
+}
+```

@@ -66,6 +66,9 @@ FutureBuilder(
 
 ### 효율적인 ListView
 
+- 데이터 량이 아주 많은 경우 최적화를 위해서 사용한다.
+- 한정된 소량의 데이터를 표현하는 경우는 그냥 Row, Column 등을 활용해도 괜찮음
+
 ```dart
 ListView.builder(
   scrollDirection: Axis.horizontal,

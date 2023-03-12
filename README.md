@@ -8,15 +8,17 @@
 | #   | 노트                             | 코드 |
 | --- | -------------------------------- | ---- |
 | 1   | [Introduction](/docs/1_intro.md) | -    |
-| 2   | [Hello flutter](/docs/2_hello_flutter.md) | [Code](/codes/2_hello_flutter.dart) |
-| 3   | [UI Challenge (Currency app)](/docs/3_ui_challenge.md) | [Code](/lib/screens/currency_screen.dart) |
-| 4   | [Stateful Widget (Pomodoro app)](/docs/4_stateful_widgets.md) | [Code](/lib/screens/pomodoro_screen.dart) |
+| 2   | [Flutter Basics](/docs/2_basics.md) | [Code](/codes/2_hello_flutter.dart) |
+| 3   | [Widget System](/docs/3_widget.md) | [Currency App](/lib/screens/currency_screen.dart) |
+| 4   | [Stateful Widget](/docs/4_stateful_widgets.md) | [Pomodoro App](/lib/screens/pomodoro_screen.dart) |
 | 5   | [Webtoon App](/docs/5_webtoon_app.md) | [Code](/lib/screens/webtoon/home_screen.dart) |
 
 ## Flutter 개발 참고링크
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 - [Online documentation](https://docs.flutter.dev/)
+- [내가 직접 정리한 flutter 개발 Tips](/docs/6_my_tips.md)
+- [Troubleshooting 정리](/docs/7_troubleshooting.md)
 
 ## Trouble shooting
 

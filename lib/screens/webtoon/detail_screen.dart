@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toonflix/models/webtoon_detail.dart';
 import 'package:toonflix/models/webtoon_episode.dart';
 import 'package:toonflix/services/api_services.dart';
@@ -21,21 +22,62 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   final String userAgent =
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36';
+  final String prefKeyLikedWebtoonIds = "liked_webton_id_list";
 
   late Future<WebtoonDetailModel> webtoon;
   late Future<List<WebtoonEpisode>> episodes;
+  late SharedPreferences prefs;
+  late String webtoonId;
+  bool isLiked = false;
+
+  void initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+
+    List<String>? likedWebtoonIds = prefs.getStringList(prefKeyLikedWebtoonIds);
+    likedWebtoonIds ??= [];
+    isLiked = likedWebtoonIds.contains(webtoonId);
+    setState(() {});
+  }
 
   @override
   void initState() {
     super.initState();
-    webtoon = ApiService.getWebtoonById(widget.id);
-    episodes = ApiService.getWebtoonEpisodesById(widget.id);
+    webtoonId = widget.id;
+    webtoon = ApiService.getWebtoonById(webtoonId);
+    episodes = ApiService.getWebtoonEpisodesById(webtoonId);
+    initPrefs();
+  }
+
+  void onTapLike() async {
+    List<String>? likedWebtoonIds = prefs.getStringList(prefKeyLikedWebtoonIds);
+    likedWebtoonIds ??= [];
+
+    if (likedWebtoonIds.contains(webtoonId)) {
+      likedWebtoonIds.remove(webtoonId);
+      isLiked = false;
+    } else {
+      likedWebtoonIds.add(webtoonId);
+      isLiked = true;
+    }
+
+    setState(() {});
+    await prefs.setStringList(prefKeyLikedWebtoonIds, likedWebtoonIds);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 2,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.green,
+        actions: [
+          IconButton(
+              onPressed: onTapLike,
+              icon: isLiked
+                  ? const Icon(Icons.favorite_outlined)
+                  : const Icon(Icons.favorite_outline_outlined))
+        ],
         title: Text(
           widget.title,
           style: const TextStyle(
@@ -43,9 +85,6 @@ class _DetailScreenState extends State<DetailScreen> {
             fontWeight: FontWeight.w400,
           ),
         ),
-        elevation: 2,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.green,
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(

@@ -1,0 +1,45 @@
+{
+    "data": {
+        "api_version": "v2",
+        "config": {
+            "device": "generic"
+        },
+        "modules": {
+            "carbon_deadline_1": {
+                "description": "Time to act before we reach irreversible 1.5°C global temperature rise",
+                "flavor": "deadline",
+                "labels": [
+                    "time left to limit global warming to 1.5°C",
+                    "time left before 1.5°C global warming",
+                    "Time to Act"
+                ],
+                "lang": "en",
+                "timestamp": "2029-07-22T16:00:00+00:00",
+                "type": "timer",
+                "update_interval_seconds": 86400
+            },
+            "women_in_parliaments": {
+                "description": "Percentage of Women in Parliaments Globally",
+                "flavor": "lifeline",
+                "growth": "linear",
+                "initial": 26.5,
+                "labels": [
+                    "Women in Parliaments Globally",
+                    "Women in Parliaments",
+                    "Women Leading",
+                    "Women Lead"
+                ],
+                "lang": "en",
+                "rate": 0,
+                "resolution": 0.1,
+                "timestamp": "2023-02-14T00:00:00+00:00",
+                "type": "value",
+                "unit_labels": [
+                    "%"
+                ],
+                "update_interval_seconds": 86400
+            }
+        }
+    },
+    "status": "success"
+}

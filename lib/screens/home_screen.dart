@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/screens/climate_dashboard/home_screen.dart';
 import 'package:toonflix/screens/currency_screen.dart';
 import 'package:toonflix/screens/pomodoro_screen.dart';
 import 'package:toonflix/screens/webtoon/home_screen.dart';
@@ -19,59 +20,75 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CurrencyScreen(),
-                  ),
-                );
-              },
-              child: const Button(
-                text: 'Currency App',
-                bgColor: Colors.red,
-                textColor: Colors.white,
-              ),
+            const NaviButton(
+              screen: CurrencyScreen(),
+              textColor: Colors.white,
+              bgColor: Colors.red,
+              btnText: 'Currency App',
             ),
             const SizedBox(
               height: 20,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PomodoroHomeScreen(),
-                  ),
-                );
-              },
-              child: const Button(
-                text: 'Pomodoro App',
-                bgColor: Colors.orange,
-                textColor: Colors.black,
-              ),
+            const NaviButton(
+              screen: PomodoroHomeScreen(),
+              textColor: Colors.black,
+              bgColor: Colors.orange,
+              btnText: 'Pomodoro App',
             ),
             const SizedBox(
               height: 20,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => WebtoonHomeScreen(),
-                  ),
-                );
-              },
-              child: const Button(
-                text: 'Webtoon App',
-                bgColor: Colors.yellow,
-                textColor: Colors.black,
-              ),
-            )
+            NaviButton(
+              screen: WebtoonHomeScreen(),
+              textColor: Colors.black,
+              bgColor: Colors.yellow,
+              btnText: 'Webtoon App',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            NaviButton(
+              screen: ClimateDashboardScreen(),
+              textColor: Colors.white,
+              bgColor: Colors.green.shade800,
+              btnText: 'Climate Dashboard App',
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class NaviButton extends StatelessWidget {
+  final Widget screen;
+  final String btnText;
+  final Color textColor;
+  final Color bgColor;
+
+  const NaviButton({
+    Key? key,
+    required this.screen,
+    required this.btnText,
+    required this.textColor,
+    required this.bgColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => screen,
+          ),
+        );
+      },
+      child: Button(
+        text: btnText,
+        bgColor: bgColor,
+        textColor: textColor,
       ),
     );
   }

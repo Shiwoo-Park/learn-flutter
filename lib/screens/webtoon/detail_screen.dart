@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toonflix/models/webtoon_detail.dart';
 import 'package:toonflix/models/webtoon_episode.dart';
-import 'package:toonflix/services/api_services.dart';
+import 'package:toonflix/services/webtoon_apis.dart';
 import 'package:toonflix/widgets/episode_button.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -43,8 +43,8 @@ class _DetailScreenState extends State<DetailScreen> {
   void initState() {
     super.initState();
     webtoonId = widget.id;
-    webtoon = ApiService.getWebtoonById(webtoonId);
-    episodes = ApiService.getWebtoonEpisodesById(webtoonId);
+    webtoon = WebtoonApiService.getWebtoonById(webtoonId);
+    episodes = WebtoonApiService.getWebtoonEpisodesById(webtoonId);
     initPrefs();
   }
 

@@ -76,18 +76,45 @@ class _ClimateClockScreenState extends State<ClimateClockScreen> {
     return "$hours:$minutes:$seconds";
   }
 
+  void showPopup() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('IF TIMER HITS ZERO,'),
+          content: const Text(
+              'DEVASTATING GLOBAL CLIMATE IMPACTS would be VERY HIGH.\n\nHuman beings would have NO CHANCE to recover the peaceful earth.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double deadlineTextSize = screenWidth * 0.13;
+    final double descTextSize = screenWidth * 0.09;
+    final double clockTextSize = screenWidth * 0.13;
+    final double clockSubTextSize = screenWidth * 0.08;
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             'DEADLINE',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 40,
+              fontSize: deadlineTextSize,
               color: Colors.black,
               fontWeight: FontWeight.w800,
             ),
@@ -95,11 +122,11 @@ class _ClimateClockScreenState extends State<ClimateClockScreen> {
           const SizedBox(
             height: 30,
           ),
-          const Text(
+          Text(
             "TIME LEFT TO LIMIT GLOBAL HEATING TO 1.5°C",
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 30,
+              fontSize: descTextSize,
               color: Colors.red,
               fontWeight: FontWeight.w600,
             ),
@@ -114,9 +141,9 @@ class _ClimateClockScreenState extends State<ClimateClockScreen> {
                 setupScreen(snapshot.data!.timestamp);
 
                 return Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(30),
                     color: Colors.red,
                   ),
                   child: Column(
@@ -127,46 +154,49 @@ class _ClimateClockScreenState extends State<ClimateClockScreen> {
                         children: [
                           Text(
                             getYearsLeft(),
-                            style: const TextStyle(
-                              fontSize: 45,
+                            style: TextStyle(
+                              fontSize: clockTextSize,
                               color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const Text(
+                          Text(
                             "YRS",
                             style: TextStyle(
-                              fontSize: 25,
+                              fontSize: clockSubTextSize,
                               color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                           const SizedBox(
-                            width: 5,
+                            width: 10,
                           ),
                           Text(
                             getDaysLeft(),
-                            style: const TextStyle(
-                              fontSize: 45,
+                            style: TextStyle(
+                              fontSize: clockTextSize,
                               color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const Text(
+                          Text(
                             "DAYS",
                             style: TextStyle(
-                              fontSize: 25,
+                              fontSize: clockSubTextSize,
                               color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
                       ),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       Text(
                         getTimeLeft(),
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 40,
+                        style: TextStyle(
+                          fontSize: clockTextSize,
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                         ),
@@ -175,6 +205,7 @@ class _ClimateClockScreenState extends State<ClimateClockScreen> {
                   ),
                 );
               }
+
               return const Center(
                 child: CircularProgressIndicator(
                   color: Colors.black,
@@ -185,6 +216,12 @@ class _ClimateClockScreenState extends State<ClimateClockScreen> {
           const SizedBox(
             height: 30,
           ),
+          IconButton(
+              onPressed: showPopup,
+              icon: Icon(
+                Icons.help_outline_outlined,
+                size: deadlineTextSize,
+              ))
         ],
       ),
     );
